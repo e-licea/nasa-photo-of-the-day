@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import PhotoContainer from './PhotoContainer'
-
+import Header from './Header'
 import Axios from "axios";
 
 
@@ -9,7 +9,9 @@ import Axios from "axios";
 
 
 function App() {
-  const [date, setDate] = useState([])
+  const [rdata, setRData] = useState([])
+  const [date, setDate] = useState(0)
+
 
   useEffect(()=>{
     Axios
@@ -17,7 +19,7 @@ function App() {
     
     .then(response => {
       console.log(response.data);
-      setDate(response.data);
+      setRData(response.data);
     
     })
     .catch(error => console.log("Error!", error))
@@ -27,11 +29,9 @@ function App() {
 
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-  app! Have fun {date.copyright}!
-      </p>
-      <PhotoContainer/>
+  
+      <Header date = {rdata.date}  />
+      <PhotoContainer className = "photocontainer" imgSrc = {rdata.url} title= {rdata.title} author = {rdata.copyright} description = {rdata.explanation}/>
     </div>
   );
 }

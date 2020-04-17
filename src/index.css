@@ -5,9 +5,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 1200px;
+  margin: 0 auto;
+  backgroumd-color: lightgrey;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.photocontainer{
+  max-width: 1200px;
+}
+
+body > div > div{
+  background-color: black;
+  color: white;
+  margin: 1%;
+}
+
+p{
+  padding: 10px 3%;
 }
